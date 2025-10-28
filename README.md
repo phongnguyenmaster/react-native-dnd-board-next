@@ -153,7 +153,7 @@ const renderColumnWrapper = ({ item, columnComponent, layoutProps }) => {
 
 **IMPORTANT:** You need pass `layoutProps` to wrapper view props and `columnComponent` must be rendered inside `renderColumnWrapper` fuction.
 
-See [example](https://github.com/hungga1711/react-native-dnd-board/blob/master/example/App.js) for more details.
+See [example](https://github.com/phongnguyenmaster/react-native-dnd-board-next/blob/version-lastest/example/app/(tabs)/index.tsx) for more details.
 
 ## Performance
 
