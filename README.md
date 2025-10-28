@@ -1,11 +1,10 @@
-## Important Notice: Project No Longer Maintained
+## Important Notice: Project Maintained
 
-I would like to inform you that this project is no longer being actively maintained. Due to personal and professional reasons, I'm unable to continue updating and fixing issues for this project.
-Thank you to everyone who has contributed to and used this project!
+Thank for hungga1711, now I am continue maintaining this package
 
 # React Native DnD Board
 
-A drag and drop Kanban board for React Native using [Reanimated (V1)](https://github.com/software-mansion/react-native-reanimated) and [React Native Gesture Handler](https://github.com/software-mansion/react-native-gesture-handler).
+A drag and drop Kanban board for React Native using [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/) and [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/).
 
 <img src="./demo-ios.gif" width="400">   <img src="./demo-android.gif" width="396">
 
@@ -13,17 +12,11 @@ A drag and drop Kanban board for React Native using [Reanimated (V1)](https://gi
 
 ### Step 1:
 
-Install [Reanimated V1](https://docs.swmansion.com/react-native-reanimated/docs/1.x.x/getting_started).
+Install [Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/).
 
 ### Step 2:
 
 Install [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/).
-
-Make sure your `MainActivity.java` was updated by [follow all Android instructions](https://docs.swmansion.com/react-native-gesture-handler/docs/#android).
-
-**React Native Gesture Handler IMPORTANT NOTE:** If you're using [wix/react-native-navigation](https://github.com/wix/react-native-navigation),
-please wrap your board screen using `gestureHandlerRootHOC` ([View RNGH docs for more details](https://docs.swmansion.com/react-native-gesture-handler/docs/#with-wixreact-native-navigation)).
-If not do it, your board won't work.
 
 ### Step 3:
 
@@ -32,13 +25,13 @@ Install this package using `npm` or `yarn`
 with `npm`:
 
 ```
-npm install react-native-dnd-board
+npm install react-native-dnd-board-next
 ```
 
 with `yarn`:
 
 ```
-yarn add react-native-dnd-board
+yarn add react-native-dnd-board-next
 ```
 
 ## API reference
@@ -150,7 +143,7 @@ Render the `Board`
 ```js
 const renderColumnWrapper = ({ item, columnComponent, layoutProps }) => {
   return (
-    <View style={styles.column} {...layoutProps}>
+    <View style={styles.column} key={layoutProps.key} ref={layoutProps.ref} onLayout={layoutProps.onLayout}>
       <Text style={styles.columnName}>{item.name}</Text>
       {columnComponent}
     </View>
@@ -164,5 +157,5 @@ See [example](https://github.com/hungga1711/react-native-dnd-board/blob/master/e
 
 ## Performance
 
-We're trying to improve board performance. If you have a better solution, please open a [issue](https://github.com/hungga1711/react-native-dnd-board/issues)
-or [pull request](https://github.com/hungga1711/react-native-dnd-board/pulls). Best regards!
+We're trying to improve board performance. If you have a better solution, please open a [issue](https://github.com/phongnguyenmaster/react-native-dnd-board-next/issues)
+or [pull request](https://github.com/phongnguyenmaster/react-native-dnd-board-next/pulls). Best regards!
