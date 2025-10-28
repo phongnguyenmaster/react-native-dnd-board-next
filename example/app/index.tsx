@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, View, Dimensions, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { Platform, StyleSheet, View, Dimensions, Text, TouchableOpacity, Button, StatusBar, ScrollView } from 'react-native';
 import { useState } from 'react';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Board, { Repository } from "react-native-dnd-board-next";
@@ -41,6 +41,7 @@ const COLUMN_WIDTH = Dimensions.get('window').width * 0.6;
 export default function HomeScreen() {
 
   const [repository] = useState(new Repository(mockData));
+  const [boardResult, setBoardResult] = useState('');
 
   const addCard = columnId => {
     const data = {
@@ -53,6 +54,9 @@ export default function HomeScreen() {
     repository.addRow(columnId, data);
   };
 
+  const getBoardResult = () => {
+    setBoardResult(JSON.stringify(repository.originalData))
+  }
   const updateCard = (cardId, data) => {
     const dummy = data || { name: 'Row updated' };
 
@@ -149,7 +153,7 @@ export default function HomeScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar backgroundColor="#014A81" />
       <View style={styles.header}>
         <Text style={styles.hederName}>React Native DnD Board</Text>
@@ -160,7 +164,7 @@ export default function HomeScreen() {
         repository={repository}
         renderRow={renderCard}
         renderColumnWrapper={renderColumn}
-       // onRowPress={onCardPress}
+        // onRowPress={onCardPress}
         onDragEnd={onDragEnd}
         columnWidth={COLUMN_WIDTH}
         accessoryRight={
@@ -171,7 +175,15 @@ export default function HomeScreen() {
           </View>
         }
       />
-    </SafeAreaView>
+      <View style={styles.footer}>
+        <Button onPress={() => getBoardResult()} title="View Result" />
+        <View style={styles.result}>
+          <ScrollView >
+            <Text>{boardResult}</Text>
+          </ScrollView>
+        </View>
+      </View>
+    </View>
   );
 };
 
@@ -180,6 +192,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  footer: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 16,
@@ -234,4 +251,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#F5F6F8',
   },
+  result: {
+    backgroundColor: '#f6f8fa',
+    borderColor: '#d1d9e0',
+    borderStyle: 'dashed',
+    borderWidth: 1,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 8
+  }
 });
