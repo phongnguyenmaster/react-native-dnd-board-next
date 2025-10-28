@@ -1,13 +1,5 @@
-import { Image } from 'expo-image';
 import { Platform, StyleSheet, View, Dimensions, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { useState } from 'react';
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Animated from 'react-native-reanimated';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Board, { Repository } from "react-native-dnd-board-next";
 

@@ -88,7 +88,7 @@ repository.deleteRow(rowId);
 ```js
 const { rows } = repository.getItemsChanged();
 ```
-**[Example](https://github.com/hungga1711/react-native-dnd-board/blob/master/example/App.js)**
+**[Example](https://github.com/phongnguyenmaster/react-native-dnd-board-next/blob/version-lastest/example/app/(tabs)/index.tsx)**
 ## Usage
 
 You need to build `Repository`
