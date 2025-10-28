@@ -12,7 +12,7 @@ A drag and drop Kanban board for React Native using [React Native Reanimated](ht
 
 ### Step 1:
 
-Install [Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/).
+Install [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/).
 
 ### Step 2:
 
