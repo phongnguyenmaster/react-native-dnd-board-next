@@ -88,6 +88,11 @@ repository.deleteRow(rowId);
 ```js
 const { rows } = repository.getItemsChanged();
 ```
+#### Get final result data:
+```js
+repository.updateOriginalData();
+const result = repository.originalData;
+```
 **[Example](https://github.com/phongnguyenmaster/react-native-dnd-board-next/blob/master/example/app/index.tsx)**
 ## Usage
 

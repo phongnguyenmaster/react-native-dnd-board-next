@@ -55,6 +55,7 @@ export default function HomeScreen() {
   };
 
   const getBoardResult = () => {
+    repository.updateOriginalData();
     setBoardResult(JSON.stringify(repository.originalData))
   }
   const updateCard = (cardId, data) => {
@@ -153,37 +154,39 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor="#014A81" />
-      <View style={styles.header}>
-        <Text style={styles.hederName}>React Native DnD Board</Text>
-      </View>
-
-      <Board
-        style={styles.board}
-        repository={repository}
-        renderRow={renderCard}
-        renderColumnWrapper={renderColumn}
-        // onRowPress={onCardPress}
-        onDragEnd={onDragEnd}
-        columnWidth={COLUMN_WIDTH}
-        accessoryRight={
-          <View style={[styles.column, styles.addColumn]}>
-            <TouchableOpacity onPress={addColumn}>
-              <Text>+ Add Column</Text>
-            </TouchableOpacity>
-          </View>
-        }
-      />
-      <View style={styles.footer}>
-        <Button onPress={() => getBoardResult()} title="View Result" />
-        <View style={styles.result}>
-          <ScrollView >
-            <Text>{boardResult}</Text>
-          </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor="#014A81" />
+        <View style={styles.header}>
+          <Text style={styles.hederName}>React Native DnD Board</Text>
         </View>
-      </View>
-    </View>
+
+        <Board
+          style={styles.board}
+          repository={repository}
+          renderRow={renderCard}
+          renderColumnWrapper={renderColumn}
+          // onRowPress={onCardPress}
+          onDragEnd={onDragEnd}
+          columnWidth={COLUMN_WIDTH}
+          accessoryRight={
+            <View style={[styles.column, styles.addColumn]}>
+              <TouchableOpacity onPress={addColumn}>
+                <Text>+ Add Column</Text>
+              </TouchableOpacity>
+            </View>
+          }
+        />
+        <View style={styles.footer}>
+          <Button onPress={() => getBoardResult()} title="View Result" />
+          <View style={styles.result}>
+            <ScrollView >
+              <Text>{boardResult}</Text>
+            </ScrollView>
+          </View>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -256,7 +259,7 @@ const styles = StyleSheet.create({
     borderColor: '#d1d9e0',
     borderStyle: 'dashed',
     borderWidth: 1,
-    height: 50,
+    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 8
