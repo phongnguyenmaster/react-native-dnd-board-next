@@ -1,6 +1,6 @@
 ## Important Notice: Project Maintained
 
-Thank for hungga1711, now I am continue maintaining this package
+Thank to hungga1711, now I am continue maintaining this package
 
 # React Native DnD Board
 
