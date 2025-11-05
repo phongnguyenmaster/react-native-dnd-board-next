@@ -23,7 +23,7 @@ import Repository from './handlers/repository';
 import Utils from './commons/utils';
 
 const SCROLL_THRESHOLD = 50;
-const SCROLL_STEP = 8;
+const SCROLL_STEP = 100;
 
 const DraggableBoard = ({
   repository,
@@ -213,6 +213,9 @@ const DraggableBoard = ({
   };
 
   const moveItem = async (hoverItem, rowItem, isColumn = false) => {
+    if (hoverRowItem.current) {
+      repository.showRow(hoverRowItem.current);
+    }
     rowItem.setHidden(true);
     repository.hideRow(rowItem);
     await rowItem.measureLayout();
